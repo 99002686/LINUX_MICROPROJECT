@@ -13,3 +13,11 @@ Additional Info that can be logged
 
     Number of lines of code
     Any other inference that can be done
+    
+# To Run
+Permission: chmod +x micro.sh
+./micro.sh
+
+# To Remove files
+rm -rf Substring_c Factorial valgrind.txt Result.csv
+
