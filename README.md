@@ -15,8 +15,7 @@ Additional Info that can be logged
     Any other inference that can be done
     
 # To Run
-Permission: chmod +x micro.sh
-./micro.sh
+Permission: chmod +x micro.sh && ./micro.sh
 
 # To Remove files
 rm -rf Substring_c Factorial valgrind.txt Result.csv
