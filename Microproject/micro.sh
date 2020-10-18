@@ -49,6 +49,7 @@ do
             printf "VALGRIND SUCCESS," >> $RESULT
         else
             printf "VALGRND FAIL," >> $RESULT
+        fi
         STATUS=`tail -n 1 valgrind.txt` && error=$(echo ${STATUS:24:3})
         printf "$error\n" >> $RESULT
     fi
