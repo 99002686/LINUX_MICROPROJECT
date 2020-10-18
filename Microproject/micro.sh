@@ -1,7 +1,7 @@
 #!/bin/bash
 RESULT="./Result.csv"
 INPUT_DIR="../Microproject/Input.csv"
-printf "Name,Email_ID,Repo_link,clone,build,cppcheck,valgrind\n" > $RESULT
+printf "Name,Email_ID,Repo_link,clone,build,cppcheck,valgrind,error\n" > $RESULT
 TEMPIFS=$IFS
 IFS=','
 [ ! -f $INPUT_DIR ] && { echo "$INPUT_DIR not found!"; exit 99; }
@@ -45,6 +45,10 @@ do
         VALOUT=`find $REPO_NAME -name "TEST*.out"`
         echo "VALOUT = $VALOUT"
         valgrind --leak-check=full $VALOUT 2>> valgrind.txt
+        if [ $? == 0]; then
+            printf "VALGRIND SUCCESS," >> $RESULT
+        else
+            printf "VALGRND FAIL," >> $RESULT
         STATUS=`tail -n 1 valgrind.txt` && error=$(echo ${STATUS:24:3})
         printf "$error\n" >> $RESULT
     fi
