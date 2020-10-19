@@ -45,7 +45,7 @@ do
         VALOUT=`find $REPO_NAME -name "TEST*.out"`
         echo "VALOUT = $VALOUT"
         valgrind --leak-check=full $VALOUT 2>> valgrind.txt
-        if [ $? == 0]; then
+        if [ $? == 0 ]; then
             printf "VALGRIND SUCCESS," >> $RESULT
         else
             printf "VALGRND FAIL," >> $RESULT
